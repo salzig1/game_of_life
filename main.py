@@ -6,7 +6,7 @@ WIDTH = 800
 HEIGTH = 800
 screen = pg.display.set_mode((WIDTH, HEIGTH))
 
-ROWS = 50
+ROWS = 400
 grid = [[random.choice([1, 0]) for _ in range(ROWS)] for _ in range(ROWS)]
 
 
