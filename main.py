@@ -32,13 +32,13 @@ def main():
     """Main loop"""
 
     global runs
-
     run = True
     while run:
+        clock.tick(FPS)
+        screen.fill(SCREEN_COLOR)
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 run = False
-
             # restart button
             if event.type == pg.MOUSEBUTTONDOWN:
                 x, y = event.pos
@@ -46,26 +46,17 @@ def main():
                         and y >= 110 and y <= 110 + 40):
                     restart()
 
-
-        clock.tick(FPS)
-        screen.fill(SCREEN_COLOR)
-
         cells = draw_cells_and_grid()
         gui(cells)
         update_cells()
 
-        # TODO: find way to find out if no cells spawn
-
         # stop if simulation is over
         if len(cell_count) > 3:
             if cell_count[-1] == cell_count[-2] == cell_count[-3] == cell_count[-4]:
-
                 runs += 1
-
                 # collect data
                 remaining_perc = 100 / cell_count[0] * cell_count[-1]
                 remaining_cells.append(remaining_perc)
-
                 restart()
 
         pg.display.flip()
