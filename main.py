@@ -109,6 +109,7 @@ def draw_cells_and_grid():
             if grid[i][j]:
                 pg.draw.rect(screen, CELL_COLOR, (x, y, cell_size, cell_size))
                 alive_cells += 1
+
             x += cell_size
         x = 0
         y += cell_size
@@ -126,10 +127,8 @@ def update_cells():
     temp = [list(i) for i in grid]
     for i in range(ROWS):
         for j in range(ROWS):
-
             # calculates amount of neighbours
             total = calculate_neighbours(i, j, temp)
-
             # rules
             if total == 3 and temp[i][j] == 0:
                 grid[i][j] = 1
@@ -161,4 +160,4 @@ def calculate_neighbours(i, j, temp):
 if __name__ == "__main__":
     main()
     # graph(count_calls.call_count, cell_count)
-    graph(runs, remaining_cells)
+    graph(runs, remaining_cells, count_calls.call_count, cell_count)
