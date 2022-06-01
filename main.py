@@ -7,13 +7,13 @@ from visulation import graph
 pg.init()
 
 # general
-FPS = 130
+FPS = 50
 SCREEN_WIDTH = 800
 SCREEN_HEIGTH = 800
 SCREEN_COLOR = (125, 57, 71)
 
 # game rules
-ROWS = 30
+ROWS = 200
 CELL_COLOR = (37, 31, 161)
 
 # data collection
@@ -66,7 +66,7 @@ def gui(cells):
     global runs
 
     # run counter
-    textsurface = myfont.render("Runned Simulations: " + str(runs), False, (0, 0, 0))
+    textsurface = myfont.render("Simulations: " + str(runs), False, (0, 0, 0))
     screen.blit(textsurface, (535, 0))
 
     # generation counter
@@ -74,7 +74,7 @@ def gui(cells):
     screen.blit(textsurface, (10, 0))
 
     # alive cells counter
-    textsurface = myfont.render("Alive cells: " + str(cells), False, (0, 0, 0))
+    textsurface = myfont.render("Cells Alive: " + str(cells), False, (0, 0, 0))
     screen.blit(textsurface, (10, 50))
     cell_count.append(cells)
 
